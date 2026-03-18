@@ -126,3 +126,7 @@ function showResult() {
 }
 
 renderTrack();
+
+//Add scoreboard
+const scoreboard = document.createElement("div");
+trackE1.before(scoreboard);
