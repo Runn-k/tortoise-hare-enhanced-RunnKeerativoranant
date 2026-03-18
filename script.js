@@ -130,3 +130,13 @@ renderTrack();
 //Add scoreboard
 const scoreboard = document.createElement("div");
 trackE1.before(scoreboard);
+
+let tortoiseScore = 0;
+let hareScore = 0;
+
+function showScore(highestScore) {
+    if (highestScore === tortoiseScore) {
+        console.log(tortoiseScore++);
+    } else highestScore === hareScore;
+    console.log(hareScore++);
+}
