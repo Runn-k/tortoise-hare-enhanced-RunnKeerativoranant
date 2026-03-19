@@ -40,6 +40,7 @@ function raceStep() {
         raceIntervalId = null;
         startBtn.disabled = false;
         showResult();
+        //showScore();
     }
 }
 
@@ -63,10 +64,10 @@ function moveHare() {
     let roll = Math.floor(Math.random() * 10) + 1;
     if (roll >= 1 && roll <= 3) {
         //1-3 relaxing
-        harePosition -= 8;
+        harePosition -= 5;
     } else if (roll >= 4 && roll <= 7) {
         //4-7 small hop
-        harePosition += 2;
+        harePosition += 6;
     } else {
         //7-10 BIG HOP
         harePosition += 3;
@@ -117,9 +118,11 @@ function showResult() {
     if (tortoisePosition >= TRACK_LENGTH && harePosition >= TRACK_LENGTH) {
         messageE1.textContent = "It's a tie!";
     } else if (tortoisePosition >= TRACK_LENGTH) {
-        messageE1.textContent = "TORTOISE WINS!!!";
+        messageE1.textContent = "🐢TORTOISE WINS!!!";
+        showScore("tortoise"); //call the function to show score when the tortoise win
     } else if (harePosition >= TRACK_LENGTH) {
-        messageE1.textContent = "HARE WINS !!!";
+        messageE1.textContent = "🐇HARE WINS !!!";
+        showScore("hare"); //call the function to show score when the hare win
     } else {
         messageE1.textContent = "Race stopped!";
     }
@@ -134,21 +137,17 @@ trackE1.before(scoreBoard);
 //use if condition to check who has the highest score
 let tortoiseScore = 0;
 let hareScore = 0;
-let draw = 0;
 
 function showScore(highestScore) {
-    if (highestScore === "tortoiseScore") {
+    if (highestScore === "tortoise") {
         tortoiseScore++;
-    } else if (highestScore === "hareScore") {
+    } else if (highestScore === "hare") {
         hareScore++;
-    } else highestScore === "Draw";
-    draw;
-}
+    }
 
-// show the scoreboard in html
-scoreBoard.innerHTML = `
+    // show the scoreboard in html
+    scoreBoard.innerHTML = `
 <h2> ScoreBoard </h2>
 <p> 🐢: ${tortoiseScore} </p> 
 <p> 🐇: ${hareScore} </p>`;
-
-showScore();
+}
