@@ -69,7 +69,7 @@ function moveHare() {
         harePosition += 2;
     } else {
         //7-10 BIG HOP
-        harePosition += 5;
+        harePosition += 3;
     }
 }
 
@@ -128,15 +128,27 @@ function showResult() {
 renderTrack();
 
 //Add scoreboard
-const scoreboard = document.createElement("div");
-trackE1.before(scoreboard);
+const scoreBoard = document.createElement("scoreBoard");
+trackE1.before(scoreBoard);
 
+//use if condition to check who has the highest score
 let tortoiseScore = 0;
 let hareScore = 0;
+let draw = 0;
 
 function showScore(highestScore) {
-    if (highestScore === tortoiseScore) {
-        console.log(tortoiseScore++);
-    } else highestScore === hareScore;
-    console.log(hareScore++);
+    if (highestScore === "tortoiseScore") {
+        tortoiseScore++;
+    } else if (highestScore === "hareScore") {
+        hareScore++;
+    } else highestScore === "Draw";
+    draw;
 }
+
+// show the scoreboard in html
+scoreBoard.innerHTML = `
+<h2> ScoreBoard </h2>
+<p> 🐢: ${tortoiseScore} </p> 
+<p> 🐇: ${hareScore} </p>`;
+
+showScore();
