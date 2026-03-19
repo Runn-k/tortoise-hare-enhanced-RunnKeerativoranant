@@ -16,4 +16,4 @@ My issue is about the coding part that the function it doesn't work because when
 
 ## a screenshot of your Pull Request page.
 
-![screenshot](images/screenshot.png)
+![screenshot-pullrequest](images/screenshot.png)
